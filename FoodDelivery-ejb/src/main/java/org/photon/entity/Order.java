@@ -43,9 +43,9 @@ public class Order implements Serializable  {
     private Customer customer;
        
     @ManyToMany(cascade = {CascadeType.ALL},targetEntity = Product.class)
-    @JoinTable(name="PRODUCT_ORDER", 
-                joinColumns={@JoinColumn(name="product_id")}, 
-                inverseJoinColumns={@JoinColumn(name="order_id")})
+    @JoinTable(name="ORDER_PRODUCTS", 
+                joinColumns={@JoinColumn(name="order_id")}, 
+                inverseJoinColumns={@JoinColumn(name="product_id")})
      private Set<Product> productL ;
   @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE} , targetEntity = Address.class)
   @JoinColumn(name = "addr_id")
